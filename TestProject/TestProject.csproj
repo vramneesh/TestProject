@@ -157,8 +157,12 @@
     <Compile Include="TestFolder\TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="allureConfig.json" />
-    <None Include="App.config" />
+    <None Include="allureConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
