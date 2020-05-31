@@ -2,8 +2,9 @@ pipeline {
 	environment {
 		solutionPath = "${workspace}\\TestProject.sln"
 		serviceTestDll = "${workspace}\\TestProject\\bin\\Release\\TestProject.dll"
-		nunitConsoleRunner = "${workspace}\\TestProject\\packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe"
+		nunitConsoleRunner = "${workspace}\\packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe"
 		reportDirectory = "${workspace}\\TestProject\\bin\\Release\\Reports"
+		NuGet = "${workspace}\\packages\\NuGet.CommandLine.5.5.1\\tools\\NuGet.exe"
 	}
     agent any 
     stages {
@@ -18,14 +19,15 @@ pipeline {
         }
 	        stage('Restore') { 
             steps {
-                powershell "NuGet.exe. restore ${solutionPath}"
+                powershell "& ${NuGet} restore ${solutionPath}"
             }
         }
+		/*
         stage('Build') { 
             steps {
                 powershell "MSBuild.exe ${solutionPath} /property:Configuration=Release"
             }
-        }
+        }*/
         stage('Test') { 
             steps {
                 powershell "& ${nunitConsoleRunner} ${serviceTestDll}"
