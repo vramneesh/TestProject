@@ -9,18 +9,21 @@ namespace TestProject.TestFolder
     [FeatureDescription("Test Class")]
     public class TestClass : BaseClass
     {
+        [Label("LABEL1")]
         [Scenario]
         public void TestMethod1()
         {
             Runner.RunScenario(TestContextMethond1);
         }
 
+        [Label("LABEL2")]
         [Scenario]
         public void TestMethod2()
         {
             Runner.RunScenario(TestContextMethond2);
         }
 
+        [Label("LABEL3")]
         [Scenario]
         public void TestMethod3()
         {
