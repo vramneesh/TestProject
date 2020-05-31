@@ -24,10 +24,6 @@ pipeline {
         }
     }
 	post{
-		cleanup{
-			dir(${workspace}@tmp){
-			deleteDir()}
-		}
 		always{
 			publishHTML([
 				allowMIssing: false,
