@@ -10,14 +10,25 @@ namespace TestProject.TestFolder
     public class TestClass : BaseClass
     {
         [Scenario]
-        public void TestMethod()
+        public void TestMethod1()
         {
-            Runner.RunScenario(TestContextMethond);
+            Runner.RunScenario(TestContextMethond1);
         }
 
-        public void TestContextMethond()
+        [Scenario]
+        public void TestMethod2()
+        {
+            Runner.RunScenario(TestContextMethond2);
+        }
+
+        public void TestContextMethond1()
         {
             Assert.AreEqual(4, 2 + 2);
+        }
+
+        public void TestContextMethond2()
+        {
+            Assert.AreEqual(4, 2 + 3);
         }
     }
 }
