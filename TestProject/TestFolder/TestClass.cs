@@ -21,12 +21,23 @@ namespace TestProject.TestFolder
             Runner.RunScenario(TestContextMethond2);
         }
 
+        [Scenario]
+        public void TestMethod3()
+        {
+            Runner.RunScenario(TestContextMethond3);
+        }
+
         public void TestContextMethond1()
         {
             Assert.AreEqual(4, 2 + 2);
         }
 
         public void TestContextMethond2()
+        {
+            Assert.AreEqual(4, 2 + 3);
+        }
+
+        public void TestContextMethond3()
         {
             Assert.AreEqual(4, 2 + 3);
         }
