@@ -3,6 +3,8 @@ using LightBDD.NUnit3;
 using FluentAssertions;
 using LightBDD.Framework.Scenarios;
 using NUnit.Framework;
+using Allure.Commons;
+using System;
 
 namespace TestProject.TestFolder
 {
@@ -32,6 +34,7 @@ namespace TestProject.TestFolder
 
         public void TestContextMethond1()
         {
+            Console.WriteLine("TEST WRITING");
             Assert.AreEqual(4, 2 + 2);
         }
 
