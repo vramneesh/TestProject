@@ -1,5 +1,5 @@
 pipeline {
-	environmment{
+	environment {
 		solutionPath = "${workspace}\\TestProject.sln"
 		serviceTestDll = "${workspace}\\TestProject\\bin\\Release\\TestProject.dll"
 		nunitConsoleRunner = "${workspace}\\TestProject\\packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe"
@@ -7,6 +7,15 @@ pipeline {
 	}
     agent any 
     stages {
+		        stage('Pull Code') { 
+            steps {
+                script {
+					git branch: 'master',
+					credentialsId: 'GitHub',
+					url: 'https://github.com/vramneesh/TestProject.git'
+				}
+            }
+        }
 	        stage('Restore') { 
             steps {
                 powershell "NuGet.exe. restore ${solutionPath}"
@@ -23,10 +32,10 @@ pipeline {
             }
         }
     }
-	post{
-		always{
+	post {
+		always {
 			publishHTML([
-				allowMIssing: false,
+				allowMissing: false,
 				alwaysLinkToLastBuild: false,
 				keepAll: true,
 				reportDir: "${reportDirectory}",
