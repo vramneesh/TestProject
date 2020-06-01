@@ -1,4 +1,5 @@
-﻿using LightBDD.NUnit3;
+﻿using Allure.Commons;
+using LightBDD.NUnit3;
 using NUnit.Allure.Core;
 using NUnit.Framework;
 using System;
@@ -16,6 +17,8 @@ namespace TestProject
             
             var Setup = ConfigurationManager.AppSettings["env"];
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
+            AllureLifecycle.Instance.CleanupResultDirectory();
+            var outPut = AllureLifecycle.Instance.ResultsDirectory;
         }
     }
 }
