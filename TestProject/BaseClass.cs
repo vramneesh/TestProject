@@ -13,6 +13,7 @@ namespace TestProject
         [OneTimeSetUp]
         public void OnTimeSetup()
         {
+            
             var Setup = ConfigurationManager.AppSettings["env"];
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
         }

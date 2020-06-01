@@ -3,7 +3,7 @@ pipeline {
 		solutionPath = "${workspace}\\TestProject.sln"
 		serviceTestDll = "${workspace}\\TestProject\\bin\\Release\\TestProject.dll"
 		nunitConsoleRunner = "${workspace}\\packages\\NUnit.ConsoleRunner.3.11.1\\tools\\nunit3-console.exe"
-		reportDirectory = "${workspace}\\TestProject\\bin\\Release\\Reports"
+		reportDirectory = "${workspace}\\TestProject\\bin\\Release\\allure-results"
 		NuGet = "${workspace}\\packages\\NuGet.CommandLine.5.5.1\\tools\\NuGet.exe"
 	}
     agent any 
@@ -40,7 +40,7 @@ pipeline {
                     includeProperties: false,
                     properties: [],
                     reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'allure-results']]
+                    results: [[path: '${reportDirectory}']]
             ])
 		}
 	}
